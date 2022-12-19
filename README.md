@@ -6,4 +6,4 @@
 
 ## References
 
-- [Getting Started with JavaFX - JavaFX and Visual Studio Code](https://openjfx.io/openjfx-docs/#IDE-VSCode) --> official docs from JavaFX team to setup VSCode with JavaFX
+- [Getting Started with JavaFX - JavaFX and Visual Studio Code](https://openjfx.io/openjfx-docs/#IDE-VSCode) --> official docs from JavaFX team to setup JavaFX in VSCode
