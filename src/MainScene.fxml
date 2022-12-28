@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="428.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/diner.png" />
+            <Image url="@resources/diner.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff7d" height="243.0" layoutX="453.0" layoutY="105.0" stroke="TRANSPARENT" strokeType="INSIDE" width="127.0" />

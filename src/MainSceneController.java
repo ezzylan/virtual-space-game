@@ -58,7 +58,20 @@ public class MainSceneController {
 
     @FXML
     void MenuButtonClicked(ActionEvent event) {
+        Stage viewMenuStage = new Stage();
+        Parent root;
 
+        try {
+            root = FXMLLoader.load(getClass().getResource("ViewMenuScene.fxml"));
+            Scene scene = new Scene(root);
+            viewMenuStage.setTitle("Virtual Space Game - View Menu");
+            viewMenuStage.setScene(scene);
+            viewMenuStage.setResizable(false);
+            ((Node) event.getSource()).getScene().getWindow().hide();
+            viewMenuStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
