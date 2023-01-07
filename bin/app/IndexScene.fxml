@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.IndexScene">
+   <children>
+      <ImageView fitHeight="428.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/img/indexbg.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="EnterButton" layoutX="252.0" layoutY="313.0" mnemonicParsing="false" onAction="#EnterButtonClicked" style="-fx-background-color: #E84948;" text="Enter Diner" textAlignment="CENTER" textFill="#fde352">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="HowToButton" layoutX="254.0" layoutY="359.0" mnemonicParsing="false" onAction="#HowToButtonClicked" style="-fx-background-color: #fde352;" text="How to play?" textAlignment="CENTER" textFill="#e84948">
+         <font>
+            <Font name="OCR A Extended" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
