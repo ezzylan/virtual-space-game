@@ -38,8 +38,17 @@ public class IndexScene {
     }
 
     @FXML
-    void HowToButtonClicked(ActionEvent event) {
-
+    void HowToButtonClicked(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Scene scene;
+        Parent root = FXMLLoader.load(getClass().getResource("../onboarding/onboarding-1.fxml"));
+        scene = new Scene(root);
+        stage.setTitle("Virtual Space Game");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setScene(scene);
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        stage.show();
     }
 
 }
