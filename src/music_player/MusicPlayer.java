@@ -1,4 +1,5 @@
 package music_player;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -20,7 +21,7 @@ public class MusicPlayer {
 
   public void playMusic(MusicPlayerCommand onMusicCommand, MainSceneController controller, Button button, Text name)
       throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-    file = new File("resources/music/Jazz Music.wav");
+    file = new File("src/resources/music/Jazz Music.wav");
     fileName = file.getName();
     int index = fileName.lastIndexOf(".");
     fileName = fileName.substring(0, index);
