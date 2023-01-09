@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="428.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/img/diner.png" />
+            <Image url="@../resources/img/diner.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e84948" height="50.0" layoutX="10.0" layoutY="10.0" stroke="#fde352" strokeType="INSIDE" width="580.0" />
@@ -49,12 +49,12 @@
       </Button>
       <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="170.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/img/music-note.png" />
+            <Image url="@../resources/img/music-note.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="23.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/img/wallet.png" />
+            <Image url="@../resources/img/wallet.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="66.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
