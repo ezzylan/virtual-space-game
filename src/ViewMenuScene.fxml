@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.layout.Pane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="35.0" layoutY="30.0" text="View Menu" />
+      <Label layoutX="35.0" layoutY="30.0" prefHeight="30.0" prefWidth="127.0" text="Pop's Diner Menu!" />
+      <Pane layoutX="54.0" layoutY="88.0" prefHeight="130.0" prefWidth="140.0" style="-fx-background-color: red;" />
+      <Pane layoutX="244.0" layoutY="88.0" prefHeight="130.0" prefWidth="140.0" style="-fx-background-color: red;" />
+      <Pane layoutX="425.0" layoutY="88.0" prefHeight="130.0" prefWidth="140.0" style="-fx-background-color: red;" />
+      <Label layoutX="54.0" layoutY="240.0" text="Pasta" />
+      <Label layoutX="162.0" layoutY="240.0" text="RM 12" />
+      <TextArea layoutX="46.0" layoutY="267.0" prefHeight="78.0" prefWidth="171.0" text="Simple and delicious, with house-made tomato-basil marinara, drizzled with Tusean olive oil." wrapText="true" />
    </children>
 </AnchorPane>
