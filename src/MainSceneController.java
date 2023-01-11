@@ -62,7 +62,7 @@ public class MainSceneController {
         Parent root;
 
         try {
-            root = FXMLLoader.load(getClass().getResource("ViewMenu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ViewMenuScene.fxml"));
             Scene scene = new Scene(root);
             viewMenuStage.setTitle("Virtual Space Game - View Menu");
             viewMenuStage.setScene(scene);

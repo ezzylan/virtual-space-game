@@ -1,44 +1,39 @@
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ResourceBundle;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 
-public class ViewMenuController {
-
-    @FXML
-    private ListView<String> myListView;
+public class ViewMenuController implements Initializable {
 
     @FXML
-    private Label myLabel;
+    private ListView<String> menuListView;
 
     @FXML
-    private Label name;
+    private Label menuLabel;
 
-    @FXML
-    private Label price;
+    String[] food = { "Pasta", "Cake", "Juice" };
 
-    @FXML
-    private TextArea description;
+    String currentFood;
 
-    List<MenuItem> menuItems;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        menuListView.getItems().addAll(food);
 
-    public ViewMenuController() {
-        menuItems = new ArrayList<MenuItem>();
+        menuListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
-        addItem("Pasta", 12.0,
-                "Simple and delicious, with house-made tomato-basil marinara, drizzled with Tusean olive oil.");
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                // call this method everytime we select a menu item from menu list
+                currentFood = menuListView.getSelectionModel().getSelectedItem();
+                menuLabel.setText(currentFood);
+            }
+
+        });
     }
 
-    public void addItem(String name, double price, String description) {
-        MenuItem menuItem = new MenuItem(name, price, description);
-        menuItems.add(menuItem);
-    }
-
-    public ArrayList<MenuItem> getMenuItems() {
-        return (ArrayList<MenuItem>) menuItems;
-    }
 }
