@@ -1,35 +1,24 @@
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+//template method for each menu item
+public abstract class MenuItem {
 
-public class MenuItem {
-    private final StringProperty name;
-    private final DoubleProperty price;
-    private final StringProperty description;
-    private final StringProperty image;
+    public abstract String getMenuName();
 
-    // Constructor to create menu item
-    public MenuItem(String name, String image, double price, String description) {
-        this.name = new SimpleStringProperty(name);
-        this.image = new SimpleStringProperty(image);
-        this.price = new SimpleDoubleProperty(price);
-        this.description = new SimpleStringProperty(description);
+    public abstract String getMenuImage();
+
+    public abstract String getMenuDesc();
+
+    public abstract Double getMenuPrice();
+
+    public void addItemToCart() {
+        System.out.println("Add item to cart");
     }
 
-    public String getImage() {
-        return image.get();
+    public void removeItemFromCart() {
+        System.out.println("Remove item from cart");
     }
 
-    public String getName() {
-        return name.get();
+    public void countTotal() {
+        System.out.println("Total:");
     }
 
-    public String getDescription() {
-        return description.get();
-    }
-
-    public double getPrice() {
-        return price.get();
-    }
 }
