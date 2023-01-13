@@ -7,12 +7,18 @@ public class MenuItem {
     private final StringProperty name;
     private final DoubleProperty price;
     private final StringProperty description;
+    private final StringProperty image;
 
     // Constructor to create menu item
-    public MenuItem(String name, double price, String description) {
+    public MenuItem(String name, String image, double price, String description) {
         this.name = new SimpleStringProperty(name);
+        this.image = new SimpleStringProperty(image);
         this.price = new SimpleDoubleProperty(price);
         this.description = new SimpleStringProperty(description);
+    }
+
+    public String getImage() {
+        return image.get();
     }
 
     public String getName() {
