@@ -5,6 +5,8 @@ import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import enter_leave.EnterLeave;
+import enter_leave.LeaveState;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,9 +54,16 @@ public class MainSceneController {
   }
 
   @FXML
-  void LeaveButtonClicked(ActionEvent event) {
+  void LeaveButtonClicked(ActionEvent event)
+      throws LineUnavailableException, IOException, UnsupportedAudioFileException {
     Stage primaryStage = new Stage();
     Parent root;
+
+    enter_leave.EnterLeave context = new EnterLeave();
+    enter_leave.State leaveState = new LeaveState();
+
+    context.setState(leaveState);
+    context.doAction();
 
     try {
       root = FXMLLoader.load(getClass().getResource("IndexScene.fxml"));
