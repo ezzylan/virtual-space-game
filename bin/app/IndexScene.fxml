@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="428.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/img/indexbg.png" />
+            <Image url="@../resources/img/indexbg.png" />
          </image>
       </ImageView>
       <Button fx:id="EnterButton" layoutX="252.0" layoutY="313.0" mnemonicParsing="false" onAction="#EnterButtonClicked" style="-fx-background-color: #E84948;" text="Enter Diner" textAlignment="CENTER" textFill="#fde352">

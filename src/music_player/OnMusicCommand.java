@@ -5,7 +5,7 @@ import app.MainSceneController;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
-public class OnMusicCommand extends MusicPlayerCommand {
+public class OnMusicCommand implements MusicPlayerCommand {
 
   @Override
   public void execute(Clip clip, String fileName, MainSceneController controller, Button button, Text name) {
