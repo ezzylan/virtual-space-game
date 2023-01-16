@@ -1,5 +1,6 @@
 package app;
 
+import java.io.Console;
 import java.io.IOException;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -72,7 +73,20 @@ public class MainSceneController {
 
   @FXML
   void MenuButtonClicked(ActionEvent event) {
+    Stage viewMenuStage = new Stage();
+    Parent root;
 
+    try {
+        root = FXMLLoader.load(getClass().getResource("ViewMenuScene.fxml"));   
+        Scene scene = new Scene(root);
+        viewMenuStage.setTitle("Virtual Space Game - Menu");
+        viewMenuStage.setScene(scene);
+        viewMenuStage.setResizable(false);
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        viewMenuStage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
   }
 
   @FXML
