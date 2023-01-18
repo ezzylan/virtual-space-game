@@ -1,3 +1,5 @@
+package see_Menu;
+
 public class MenuJuice extends MenuItem {
     @Override
     public String getMenuName() {

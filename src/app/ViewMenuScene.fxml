@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="see_Menu.ViewMenuController">
    <children>
       <ListView fx:id="menuListView" layoutX="31.0" layoutY="105.0" prefHeight="189.0" prefWidth="172.0" />
       <ImageView fx:id="menuPicLabel" fitHeight="124.0" fitWidth="200.0" layoutX="336.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
@@ -27,10 +27,10 @@
             <Font name="OCR A Extended" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="orderLabel" layoutX="500.0" layoutY="332.0" mnemonicParsing="false" text="Order" />
-      <Text layoutX="291.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-      <Button fx:id="addItemLabel" layoutX="252.0" layoutY="301.0" mnemonicParsing="false" text="+" />
-      <Button fx:id="removeItemLabel" layoutX="315.0" layoutY="301.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="orderMenu" layoutX="500.0" layoutY="332.0" mnemonicParsing="false" onAction="#orderMenuClicked" text="Order" />
+      <Text fx:id="orderAmount" layoutX="293.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Button fx:id="addItemLabel" layoutX="313.0" layoutY="301.0" mnemonicParsing="false" onAction="#addItemClicked" text="+" />
+      <Button fx:id="removeItemLabel" layoutX="253.0" layoutY="301.0" mnemonicParsing="false" onAction="#removeItemClicked" prefHeight="25.0" prefWidth="25.0" text="-" />
       <Text layoutX="31.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your cart:" />
       <Label layoutX="89.0" layoutY="350.0" text="Pasta x" />
       <Text fx:id="pastaItemQuantityLabel" layoutX="130.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
@@ -58,5 +58,6 @@
             <Font name="OCR A Extended" size="12.0" />
          </font>
       </Text>
+      <Button fx:id="cancelMenu" layoutX="439.0" layoutY="332.0" mnemonicParsing="false" onAction="#cancelMenuClicked" text="Cancel" />
    </children>
 </AnchorPane>

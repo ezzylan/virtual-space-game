@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainSceneController">
    <children>
-      <ImageView fitHeight="428.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="indexBG" fitHeight="428.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/img/diner.png" />
          </image>
@@ -22,17 +22,17 @@
             <Font name="OCR A Extended" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="MenuButton" layoutX="476.0" layoutY="168.0" mnemonicParsing="false" onAction="#MenuButtonClicked" prefHeight="25.0" prefWidth="86.0" text="See menu" textAlignment="CENTER">
+      <Button fx:id="MenuButton" disable="true" layoutX="476.0" layoutY="168.0" mnemonicParsing="false" onAction="#MenuButtonClicked" prefHeight="25.0" prefWidth="86.0" text="See menu" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="OrderButton" layoutX="476.0" layoutY="213.0" mnemonicParsing="false" onAction="#OrderButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Order" textAlignment="CENTER">
+      <Button fx:id="OrderButton" disable="true" layoutX="476.0" layoutY="213.0" mnemonicParsing="false" onAction="#OrderButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Order" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="EatButton" layoutX="476.0" layoutY="257.0" mnemonicParsing="false" onAction="#EatButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Eat" textAlignment="CENTER">
+      <Button fx:id="EatButton" disable="true" layoutX="476.0" layoutY="257.0" mnemonicParsing="false" onAction="#EatButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Eat" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>

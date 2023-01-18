@@ -15,6 +15,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import music_player.MusicPlayer;
@@ -24,6 +26,9 @@ import music_player.OnMusicCommand;
 public class MainSceneController {
   MusicPlayer musicPlayer = new MusicPlayer();
   boolean isPlaying = false;
+
+  @FXML
+  private ImageView indexBG;
 
   @FXML
   private Button EatButton;
@@ -115,7 +120,11 @@ public class MainSceneController {
 
   @FXML
   void SitButtonClicked(ActionEvent event) {
-
+    Image image = new Image(getClass().getResourceAsStream("../resources/img/table.png"));
+    indexBG.setImage(image);
+    MenuButton.setDisable(false);
+    OrderButton.setDisable(false);
+    EatButton.setDisable(false);
   }
 
   public boolean isPlaying() {
