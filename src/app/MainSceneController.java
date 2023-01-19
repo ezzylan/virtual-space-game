@@ -1,11 +1,8 @@
 package app;
 
-import java.io.Console;
 import java.io.IOException;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-
 import enter_leave.EnterLeave;
 import enter_leave.LeaveState;
 import javafx.event.ActionEvent;
@@ -46,7 +43,7 @@ public class MainSceneController {
   private Text MusicName;
 
   @FXML
-  private Button OrderButton;
+  private Button DisplayButton;
 
   @FXML
   private Button SitButton;
@@ -91,15 +88,15 @@ public class MainSceneController {
     Parent root;
 
     try {
-        root = FXMLLoader.load(getClass().getResource("ViewMenuScene.fxml"));   
-        Scene scene = new Scene(root);
-        viewMenuStage.setTitle("Virtual Space Game - Menu");
-        viewMenuStage.setScene(scene);
-        viewMenuStage.setResizable(false);
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        viewMenuStage.show();
+      root = FXMLLoader.load(getClass().getResource("ViewMenuScene.fxml"));
+      Scene scene = new Scene(root);
+      viewMenuStage.setTitle("Virtual Space Game - Menu");
+      viewMenuStage.setScene(scene);
+      viewMenuStage.setResizable(false);
+      ((Node) event.getSource()).getScene().getWindow().hide();
+      viewMenuStage.show();
     } catch (IOException e) {
-        e.printStackTrace();
+      e.printStackTrace();
     }
   }
 
@@ -114,7 +111,7 @@ public class MainSceneController {
   }
 
   @FXML
-  void OrderButtonClicked(ActionEvent event) {
+  void DisplayButtonClicked(ActionEvent event) {
 
   }
 
@@ -123,7 +120,7 @@ public class MainSceneController {
     Image image = new Image(getClass().getResourceAsStream("../resources/img/table.png"));
     indexBG.setImage(image);
     MenuButton.setDisable(false);
-    OrderButton.setDisable(false);
+    DisplayButton.setDisable(false);
     EatButton.setDisable(false);
   }
 
