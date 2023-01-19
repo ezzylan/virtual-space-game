@@ -7,7 +7,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import enter_leave.EnterLeave;
 import enter_leave.EnterState;
-import enter_leave.LeaveState;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

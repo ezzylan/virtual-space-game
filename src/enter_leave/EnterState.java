@@ -9,8 +9,6 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import javafx.scene.media.AudioClip;
-
 public class EnterState implements State {
 
     @Override
