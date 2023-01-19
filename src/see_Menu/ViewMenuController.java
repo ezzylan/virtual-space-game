@@ -66,9 +66,9 @@ public class ViewMenuController implements Initializable {
 
     // var to grab selected menu item
     MenuItem currentFood;
-    private int quantityPasta = 0;
-    private int quantityCake = 0;
-    private int quantityJuice = 0;
+    protected int quantityPasta = 0;
+    protected int quantityCake = 0;
+    protected int quantityJuice = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -188,19 +188,26 @@ public class ViewMenuController implements Initializable {
 
     @FXML
     void orderMenuClicked(ActionEvent event) {
-        Stage o = new Stage();
-        Parent root;
 
         try {
-        root = FXMLLoader.load(getClass().getResource("../order_Food/displayFood.fxml"));
-        Scene scene = new Scene(root);
-        o.setTitle("Virtual Space Game");
-        o.setScene(scene);
-        o.setResizable(false);
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        o.show();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../order_Food/displayFood.fxml"));
+            Parent odr = loader.load();
+
+            Scene scene2 = new Scene(odr);
+
+            order_Food.foodController controller = loader.getController();
+            controller.cake = quantityCake;
+            controller.juice = quantityJuice;
+            controller.pasta = quantityPasta;
+
+            Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.setTitle("Virtual Space Game - Display Food");
+            window.setScene(scene2);
+            window.show();
+
         } catch (IOException e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
