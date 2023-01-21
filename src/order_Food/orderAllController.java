@@ -106,14 +106,21 @@ public class orderAllController {
       // }
     }
 
+    /**
+     * Using Facade design pattern that use orderAllFacade class as
+     * an interface which provides simplified methods required by 
+     * client (DisplayButtonClicked) and delegates calls to methods of
+     * existing system classes. (cakePlate, juicePlate, pastaPlate)
+     */
     @FXML
     void DisplayButtonClicked(ActionEvent event) {
-      Image image1 = new Image(getClass().getResourceAsStream("../resources/img/cake.png"));
-      displayFoodBG1.setImage(image1);
-      Image image2 = new Image(getClass().getResourceAsStream("../resources/img/juice.png"));
-      displayFoodBG2.setImage(image2);
-      Image image3 = new Image(getClass().getResourceAsStream("../resources/img/pasta.png"));
-      displayFoodBG3.setImage(image3);
+      orderAllFacade foodImage = new orderAllFacade();
+      displayFoodBG1.setImage(foodImage.getCakeImage());
+      displayFoodBG2.setImage(foodImage.getJuiceImage());
+      displayFoodBG3.setImage(foodImage.getPastaImage());
+      System.out.print("\n\nDisplay Number of Cake: 1\n\nDisplay Number of Juice: 1\n\nDisplay Number of Pasta: 1");
+      DisplayButton.setDisable(true);
+
     }
 
     @FXML

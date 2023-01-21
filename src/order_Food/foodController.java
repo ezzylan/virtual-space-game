@@ -129,9 +129,14 @@ public class foodController {
         // }
     }
 
+    /**
+     * Using Decorator design pattern that use plateDecorator class 
+     * and foodItemDecorator concrete class which wraps the original 
+     * class (plate) and provides additional functionality 
+     * (methods; enjoy()) while keeping exiting class methods intact.
+     */
     @FXML
     void displayButtonClicked(ActionEvent event) throws IOException {
-        //order_Food.displayDecorator d = new displayDecorator(cake, juice, pasta);
         plate testCake = new cakePlate();
         plate testJuice = new juicePlate();
         plate testPasta = new pastaPlate();
@@ -141,17 +146,32 @@ public class foodController {
         plate decoPasta = new foodItemDecorator(testPasta);
         
         if (cake != 0){
+            // Alert a = new Alert(AlertType.INFORMATION);
+            // a.setHeaderText(null);
+            // a.setContentText("Display Number of Cake: " + cake);
+            // a.showAndWait();
             foodBG1.setImage(decoCake.display());
             System.out.println("Display Number of Cake: " + cake);
+
         }
         if (juice != 0){
+            // Alert b = new Alert(AlertType.INFORMATION);
+            // b.setHeaderText(null);
+            // b.setContentText("Display Number of Juice: " + juice);
+            // b.showAndWait();
             foodBG2.setImage(decoJuice.display());
             System.out.println("Display Number of Juice: " + juice);
+
         }
         if (pasta != 0){
+            // Alert c = new Alert(AlertType.INFORMATION);
+            // c.setHeaderText(null);
+            // c.setContentText("Display Number of Pasta: " + pasta);
+            // c.showAndWait();
             foodBG3.setImage(decoPasta.display());
             System.out.println("Display Number of Pasta: " + pasta);
         }
+        displayButton.setDisable(true);
     }
 
     @FXML
