@@ -1,4 +1,4 @@
-package order_Food;
+package food;
 
 import javafx.scene.image.Image;
 
@@ -16,7 +16,7 @@ public class foodItemDecorator extends plateDecorator {
     }
 
     public void enjoy(plate plateFood){
-        System.out.print("\n Please enjoy!");
+        System.out.print("\nPlease enjoy!");
     }
     
 }

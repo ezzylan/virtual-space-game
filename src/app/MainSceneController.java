@@ -43,7 +43,7 @@ public class MainSceneController {
   private Text MusicName;
 
   @FXML
-  private Button DisplayButton;
+  private Button OrderAllButton;
 
   @FXML
   private Button SitButton;
@@ -111,14 +111,14 @@ public class MainSceneController {
   }
 
   @FXML
-  void DisplayButtonClicked(ActionEvent event) {
+  void OrderAllButtonClicked(ActionEvent event) {
     Stage displayStage = new Stage();
     Parent root;
 
     try {
-      root = FXMLLoader.load(getClass().getResource("../order_Food/orderAll.fxml"));
+      root = FXMLLoader.load(getClass().getResource("../food/orderAll.fxml"));
       Scene scene = new Scene(root);
-      displayStage.setTitle("Virtual Space Game - Display Food");
+      displayStage.setTitle("Virtual Space Game");
       displayStage.setScene(scene);
       displayStage.setResizable(false);
       ((Node) event.getSource()).getScene().getWindow().hide();
@@ -133,8 +133,8 @@ public class MainSceneController {
     Image image = new Image(getClass().getResourceAsStream("../resources/img/table.png"));
     indexBG.setImage(image);
     MenuButton.setDisable(false);
-    DisplayButton.setDisable(false);
     EatButton.setDisable(false);
+    OrderAllButton.setDisable(false);
     SitButton.setDisable(true);
   }
 
