@@ -191,12 +191,12 @@ public class ViewMenuController implements Initializable {
 
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../order_Food/displayFood.fxml"));
+            loader.setLocation(getClass().getResource("../food/displayFood.fxml"));
             Parent odr = loader.load();
 
             Scene scene2 = new Scene(odr);
 
-            order_food.foodController controller = loader.getController();
+            food.foodController controller = loader.getController();
             controller.cake = quantityCake;
             controller.juice = quantityJuice;
             controller.pasta = quantityPasta;

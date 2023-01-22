@@ -1,4 +1,4 @@
-package order_food;
+package food;
 
 import javafx.scene.image.Image;
 

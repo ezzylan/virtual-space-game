@@ -116,7 +116,7 @@ public class MainSceneController {
     Parent root;
 
     try {
-      root = FXMLLoader.load(getClass().getResource("../order_food/orderAll.fxml"));
+      root = FXMLLoader.load(getClass().getResource("../food/orderAll.fxml"));
       Scene scene = new Scene(root);
       displayStage.setTitle("Virtual Space Game");
       displayStage.setScene(scene);
