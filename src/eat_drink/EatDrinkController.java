@@ -7,6 +7,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import enter_leave.EnterLeave;
 import enter_leave.LeaveState;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import music_player.MusicPlayer;
 import music_player.OffMusicCommand;
 import music_player.OnMusicCommand;
@@ -137,6 +139,11 @@ public class EatDrinkController {
         EatDrinkNoiseGroup.setVisible(false);
         EatDrinkNoiseGroup.setManaged(false);
 
+        FadeTransition ft = new FadeTransition(Duration.millis(1000), EatDrinkAllSomeGroup);
+        ft.setFromValue(0.0);
+        ft.setToValue(1.0);
+        ft.play();
+
         EatDrinkAllSomeGroup.setVisible(true);
         EatDrinkAllSomeGroup.setManaged(true);
     }
@@ -190,6 +197,11 @@ public class EatDrinkController {
 
         EatDrinkNoiseGroup.setVisible(false);
         EatDrinkNoiseGroup.setManaged(false);
+
+        FadeTransition ft = new FadeTransition(Duration.millis(1000), EatDrinkAllSomeGroup);
+        ft.setFromValue(0.0);
+        ft.setToValue(1.0);
+        ft.play();
 
         EatDrinkAllSomeGroup.setVisible(true);
         EatDrinkAllSomeGroup.setManaged(true);

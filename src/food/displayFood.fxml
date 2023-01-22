@@ -17,22 +17,22 @@
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e84948" height="50.0" layoutX="10.0" layoutY="10.0" stroke="#fde352" strokeType="INSIDE" width="580.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff7d" height="243.0" layoutX="453.0" layoutY="105.0" stroke="TRANSPARENT" strokeType="INSIDE" width="127.0" />
-      <Button fx:id="SitButton" disable="true" layoutX="476.0" layoutY="125.0" mnemonicParsing="false" onAction="#SitButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Sit" textAlignment="CENTER">
+      <Button fx:id="SitButton" disable="true" layoutX="471.0" layoutY="125.0" mnemonicParsing="false" onAction="#SitButtonClicked" prefHeight="25.0" prefWidth="95.0" text="Sit" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="MenuButton" disable="true" layoutX="476.0" layoutY="168.0" mnemonicParsing="false" onAction="#MenuButtonClicked" prefHeight="25.0" prefWidth="86.0" text="See menu" textAlignment="CENTER">
+      <Button fx:id="MenuButton" disable="true" layoutX="471.0" layoutY="168.0" mnemonicParsing="false" onAction="#MenuButtonClicked" prefHeight="25.0" prefWidth="95.0" text="See menu" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="displayButton" layoutX="476.0" layoutY="213.0" mnemonicParsing="false" onAction="#displayButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Display" textAlignment="CENTER">
+      <Button fx:id="displayButton" layoutX="471.0" layoutY="213.0" mnemonicParsing="false" onAction="#displayButtonClicked" prefHeight="25.0" prefWidth="95.0" text="Display" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="EatButton" layoutX="476.0" layoutY="257.0" mnemonicParsing="false" onAction="#EatButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Eat" textAlignment="CENTER">
+      <Button fx:id="EatButton" layoutX="471.0" layoutY="257.0" mnemonicParsing="false" onAction="#EatButtonClicked" prefHeight="25.0" prefWidth="95.0" text="Eat/Drink" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>
@@ -42,7 +42,7 @@
             <Font name="OCR A Extended" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="LeaveButton" layoutX="476.0" layoutY="303.0" mnemonicParsing="false" onAction="#LeaveButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Leave" textAlignment="CENTER">
+      <Button fx:id="LeaveButton" layoutX="471.0" layoutY="303.0" mnemonicParsing="false" onAction="#LeaveButtonClicked" prefHeight="25.0" prefWidth="95.0" text="Leave" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>

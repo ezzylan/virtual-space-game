@@ -132,10 +132,10 @@ public class MainSceneController {
   void SitButtonClicked(ActionEvent event) {
     Image image = new Image(getClass().getResourceAsStream("../resources/img/table.png"));
     indexBG.setImage(image);
-    MenuButton.setDisable(false);
-    EatButton.setDisable(false);
-    OrderAllButton.setDisable(false);
     SitButton.setDisable(true);
+    MenuButton.setDisable(false);
+    OrderAllButton.setDisable(false);
+    EatButton.setDisable(true);
   }
 
   public boolean isPlaying() {
