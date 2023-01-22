@@ -196,7 +196,7 @@ public class ViewMenuController implements Initializable {
 
             Scene scene2 = new Scene(odr);
 
-            order_Food.foodController controller = loader.getController();
+            order_food.foodController controller = loader.getController();
             controller.cake = quantityCake;
             controller.juice = quantityJuice;
             controller.pasta = quantityPasta;

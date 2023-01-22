@@ -116,9 +116,9 @@ public class MainSceneController {
     Parent root;
 
     try {
-      root = FXMLLoader.load(getClass().getResource("../order_Food/orderAll.fxml"));
+      root = FXMLLoader.load(getClass().getResource("../order_food/orderAll.fxml"));
       Scene scene = new Scene(root);
-      displayStage.setTitle("Virtual Space Game - Display Food");
+      displayStage.setTitle("Virtual Space Game");
       displayStage.setScene(scene);
       displayStage.setResizable(false);
       ((Node) event.getSource()).getScene().getWindow().hide();
@@ -134,6 +134,7 @@ public class MainSceneController {
     indexBG.setImage(image);
     MenuButton.setDisable(false);
     EatButton.setDisable(false);
+    OrderAllButton.setDisable(false);
     SitButton.setDisable(true);
   }
 

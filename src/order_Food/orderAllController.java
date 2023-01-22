@@ -1,4 +1,4 @@
-package order_Food;
+package order_food;
 
 import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
@@ -12,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;

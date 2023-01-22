@@ -1,4 +1,4 @@
-package order_Food;
+package order_food;
 
 import java.io.Console;
 import java.io.IOException;
