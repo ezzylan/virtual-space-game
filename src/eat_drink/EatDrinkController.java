@@ -125,8 +125,8 @@ public class EatDrinkController {
 
     @FXML
     void LoudlyButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        eat_drink.EatDrink client = new EatDrink();
-        eat_drink.EatDrinkBehaviour eatDrinkLoudly = new EatDrinkLoudly();
+        EatDrink client = new EatDrink();
+        EatDrinkBehaviour eatDrinkLoudly = new EatDrinkLoudly();
 
         client.setEatBehaviour(eatDrinkLoudly);
         client.eat(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
@@ -157,8 +157,8 @@ public class EatDrinkController {
 
     @FXML
     void NoSomeButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        eat_drink.EatDrink client = new EatDrink();
-        eat_drink.EatDrinkBehaviour eatDrinkSome = new EatDrinkSome();
+        EatDrink client = new EatDrink();
+        EatDrinkBehaviour eatDrinkSome = new EatDrinkSome();
 
         client.setEatBehaviour(eatDrinkSome);
         client.eat(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
@@ -179,8 +179,8 @@ public class EatDrinkController {
 
     @FXML
     void SilentlyButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        eat_drink.EatDrink client = new EatDrink();
-        eat_drink.EatDrinkBehaviour eatDrinkSilently = new EatDrinkSilently();
+        EatDrink client = new EatDrink();
+        EatDrinkBehaviour eatDrinkSilently = new EatDrinkSilently();
 
         client.setEatBehaviour(eatDrinkSilently);
         client.eat(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
@@ -202,8 +202,8 @@ public class EatDrinkController {
 
     @FXML
     void YesAllButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        eat_drink.EatDrink client = new EatDrink();
-        eat_drink.EatDrinkBehaviour eatDrinkAll = new EatDrinkAll();
+        EatDrink client = new EatDrink();
+        EatDrinkBehaviour eatDrinkAll = new EatDrinkAll();
 
         client.setEatBehaviour(eatDrinkAll);
         client.eat(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
