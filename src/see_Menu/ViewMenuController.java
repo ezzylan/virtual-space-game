@@ -72,18 +72,21 @@ public class ViewMenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Create list of menu items
+        
+        MenuRepository menuRepository = new MenuRepository();
+
+        // JavaFx - Create list of menu items
         ObservableList<MenuItem> items = FXCollections.observableArrayList();
-        // Create Menu Object
-        MenuItem pasta = new MenuPasta();
-        MenuItem cake = new MenuCake();
-        MenuItem juice = new MenuJuice();
-        // Add object to the observable list
-        items.add(pasta);
-        items.add(cake);
-        items.add(juice);
-        // Add object to listview
-        menuListView.setItems(items);
+        
+        Iterator iterator = menuRepository.createIterator();
+        while (iterator.hasNext()){
+            MenuItem menuItem = (MenuItem) iterator.next();
+            // Add object to the observable list
+            items.add(menuItem);
+            // Add object to listview
+            menuListView.setItems(items);
+        }
+        
         menuListView.setCellFactory(param -> new ListCell<MenuItem>() {
             protected void updateItem(MenuItem menu, boolean empty) {
                 super.updateItem(menu, empty);
