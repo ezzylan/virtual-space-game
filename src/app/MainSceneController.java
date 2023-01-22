@@ -43,7 +43,7 @@ public class MainSceneController {
   private Text MusicName;
 
   @FXML
-  private Button DisplayButton;
+  private Button OrderAllButton;
 
   @FXML
   private Button SitButton;
@@ -111,7 +111,7 @@ public class MainSceneController {
   }
 
   @FXML
-  void DisplayButtonClicked(ActionEvent event) {
+  void OrderAllButtonClicked(ActionEvent event) {
     Stage displayStage = new Stage();
     Parent root;
 
@@ -133,7 +133,6 @@ public class MainSceneController {
     Image image = new Image(getClass().getResourceAsStream("../resources/img/table.png"));
     indexBG.setImage(image);
     MenuButton.setDisable(false);
-    DisplayButton.setDisable(false);
     EatButton.setDisable(false);
     SitButton.setDisable(true);
   }

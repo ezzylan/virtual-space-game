@@ -27,7 +27,7 @@
             <Font name="OCR A Extended" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="DisplayButton" disable="true" layoutX="471.0" layoutY="214.0" mnemonicParsing="false" onAction="#DisplayButtonClicked" prefHeight="25.0" prefWidth="95.0" text="Order All" textAlignment="CENTER">
+      <Button fx:id="OrderAllButton" disable="true" layoutX="471.0" layoutY="214.0" mnemonicParsing="false" onAction="#OrderAllButtonClicked" prefHeight="25.0" prefWidth="95.0" text="Order All" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>
