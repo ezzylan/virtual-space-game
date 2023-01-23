@@ -96,6 +96,10 @@ public class EatDrinkController {
     private Button YesAllButton;
 
     @FXML
+    void displayButtonClicked(ActionEvent event) throws IOException {
+    }
+
+    @FXML
     void EatButtonClicked(ActionEvent event) {
     }
 
@@ -127,11 +131,11 @@ public class EatDrinkController {
 
     @FXML
     void LoudlyButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        EatDrink client = new EatDrink();
+        EatDrink eatDrink = new EatDrink();
         EatDrinkBehaviour eatDrinkLoudly = new EatDrinkLoudly();
 
-        client.setEatDrinkBehaviour(eatDrinkLoudly);
-        client.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
+        eatDrink.setEatDrinkBehaviour(eatDrinkLoudly);
+        eatDrink.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
 
         FXMLLoader root = new FXMLLoader(getClass().getResource("EatDrink.fxml"));
         root.setController(eatDrinkLoudly);
@@ -164,11 +168,11 @@ public class EatDrinkController {
 
     @FXML
     void NoSomeButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        EatDrink client = new EatDrink();
+        EatDrink eatDrink = new EatDrink();
         EatDrinkBehaviour eatDrinkSome = new EatDrinkSome();
 
-        client.setEatDrinkBehaviour(eatDrinkSome);
-        client.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
+        eatDrink.setEatDrinkBehaviour(eatDrinkSome);
+        eatDrink.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
 
         FXMLLoader root = new FXMLLoader(getClass().getResource("EatDrink.fxml"));
         root.setController(eatDrinkSome);
@@ -181,19 +185,15 @@ public class EatDrinkController {
     }
 
     @FXML
-    void displayButtonClicked(ActionEvent event) throws IOException {
-    }
+    void QuietlyButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+        EatDrink eatDrink = new EatDrink();
+        EatDrinkBehaviour eatDrinkQuietly = new EatDrinkQuietly();
 
-    @FXML
-    void SilentlyButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        EatDrink client = new EatDrink();
-        EatDrinkBehaviour eatDrinkSilently = new EatDrinkSilently();
-
-        client.setEatDrinkBehaviour(eatDrinkSilently);
-        client.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
+        eatDrink.setEatDrinkBehaviour(eatDrinkQuietly);
+        eatDrink.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
 
         FXMLLoader root = new FXMLLoader(getClass().getResource("EatDrink.fxml"));
-        root.setController(eatDrinkSilently);
+        root.setController(eatDrinkQuietly);
 
         EatDrinkNoiseGroup.setVisible(false);
         EatDrinkNoiseGroup.setManaged(false);
@@ -214,11 +214,11 @@ public class EatDrinkController {
 
     @FXML
     void YesAllButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        EatDrink client = new EatDrink();
+        EatDrink eatDrink = new EatDrink();
         EatDrinkBehaviour eatDrinkAll = new EatDrinkAll();
 
-        client.setEatDrinkBehaviour(eatDrinkAll);
-        client.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
+        eatDrink.setEatDrinkBehaviour(eatDrinkAll);
+        eatDrink.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
 
         FXMLLoader root = new FXMLLoader(getClass().getResource("EatDrink.fxml"));
         root.setController(eatDrinkAll);

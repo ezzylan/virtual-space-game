@@ -8,17 +8,17 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javafx.scene.image.ImageView;
 
 public class EatDrink {
-    private EatDrinkBehaviour eatBehaviour;
+    private EatDrinkBehaviour eatDrinkBehaviour;
 
-    public EatDrinkBehaviour getEatBehaviour() {
-        return this.eatBehaviour;
+    public EatDrinkBehaviour getEatDrinkBehaviour() {
+        return this.eatDrinkBehaviour;
     }
 
-    public void setEatDrinkBehaviour(EatDrinkBehaviour eatBehaviour) {
-        this.eatBehaviour = eatBehaviour;
+    public void setEatDrinkBehaviour(EatDrinkBehaviour eatDrinkBehaviour) {
+        this.eatDrinkBehaviour = eatDrinkBehaviour;
     }
 
     public void performEatDrink(int pasta, int juice, int cake, ImageView foodBG1, ImageView foodBG2, ImageView foodBG3) throws LineUnavailableException, IOException, UnsupportedAudioFileException  {
-        this.eatBehaviour.eat(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
+        this.eatDrinkBehaviour.eatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
     }
 }

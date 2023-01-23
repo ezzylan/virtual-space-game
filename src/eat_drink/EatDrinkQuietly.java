@@ -8,10 +8,10 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class EatDrinkSilently implements EatDrinkBehaviour {
+public class EatDrinkQuietly implements EatDrinkBehaviour {
 
     @Override
-    public void eat(int pasta, int juice, int cake, ImageView foodBG1, ImageView foodBG2, ImageView foodBG3) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+    public void eatDrink(int pasta, int juice, int cake, ImageView foodBG1, ImageView foodBG2, ImageView foodBG3) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
         if (cake != 0){
             Image image1 = new Image(getClass().getResourceAsStream("../resources/img/cake.png"));
             foodBG1.setImage(image1);

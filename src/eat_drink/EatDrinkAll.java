@@ -17,7 +17,7 @@ import javafx.util.Duration;
 public class EatDrinkAll implements EatDrinkBehaviour {
 
     @Override
-    public void eat(int pasta, int juice, int cake, ImageView foodBG1, ImageView foodBG2, ImageView foodBG3) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+    public void eatDrink(int pasta, int juice, int cake, ImageView foodBG1, ImageView foodBG2, ImageView foodBG3) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
         if (cake != 0){
             FadeTransition ft = new FadeTransition(Duration.millis(500), foodBG1);
             ft.setFromValue(0.0);
