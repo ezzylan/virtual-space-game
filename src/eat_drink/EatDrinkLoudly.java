@@ -15,7 +15,7 @@ import javafx.scene.image.ImageView;
 public class EatDrinkLoudly implements EatDrinkBehaviour {
 
     @Override
-    public void eat(int pasta, int juice, int cake, ImageView foodBG1, ImageView foodBG2, ImageView foodBG3) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+    public void eatDrink(int pasta, int juice, int cake, ImageView foodBG1, ImageView foodBG2, ImageView foodBG3) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
         if (cake != 0){
             File file = new File("src/resources/sfx/eating-cake.wav");
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);

@@ -84,15 +84,15 @@
                   <Font name="OCR A Extended" size="13.0" />
                </font>
                <tooltip>
-                  <Tooltip text="Sorry, I'm quite a noisy eater." />
+                  <Tooltip text="Sorry, I'm a bit of a noisy eater." />
                </tooltip>
             </Button>
-            <Button fx:id="SilentlyButton" layoutX="167.0" layoutY="77.0" mnemonicParsing="false" onAction="#SilentlyButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Quietly" textAlignment="CENTER">
+            <Button fx:id="QuietlyButton" layoutX="167.0" layoutY="77.0" mnemonicParsing="false" onAction="#QuietlyButtonClicked" prefHeight="25.0" prefWidth="86.0" text="Quietly" textAlignment="CENTER">
                <font>
                   <Font name="OCR A Extended" size="13.0" />
                </font>
                <tooltip>
-                  <Tooltip text="Yes, I can eat and drink without any noises." />
+                  <Tooltip text="I am prim and proper, so I eat and drink without making any noises." />
                </tooltip>
             </Button>
          </children>
@@ -118,7 +118,7 @@
                   <Font name="OCR A Extended" size="13.0" />
                </font>
                <tooltip>
-                  <Tooltip text="Because I'm not that hungry..." />
+                  <Tooltip text="Well, I'm not that hungry..." />
                </tooltip>
             </Button>
          </children>
