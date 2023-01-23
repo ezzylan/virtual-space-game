@@ -72,7 +72,25 @@ public class foodController {
 
     @FXML
     void EatButtonClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../eat_drink/EatDrink.fxml"));
+            Parent odr = loader.load();
 
+            Scene scene2 = new Scene(odr);
+
+            eat_drink.EatDrinkController controller = loader.getController();
+            controller.cake = cake;
+            controller.juice = juice;
+            controller.pasta = pasta;
+
+            Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.setTitle("Virtual Space Game - Eat/Drink");
+            window.setScene(scene2);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
