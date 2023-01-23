@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -32,7 +33,7 @@
             <Font name="OCR A Extended" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="EatButton" layoutX="471.0" layoutY="257.0" mnemonicParsing="false" onAction="#EatButtonClicked" prefHeight="25.0" prefWidth="95.0" text="Eat/Drink" textAlignment="CENTER">
+      <Button fx:id="EatButton" disable="true" layoutX="471.0" layoutY="257.0" mnemonicParsing="false" onAction="#EatButtonClicked" prefHeight="25.0" prefWidth="95.0" text="Eat/Drink" textAlignment="CENTER">
          <font>
             <Font name="OCR A Extended" size="13.0" />
          </font>
@@ -78,5 +79,46 @@
             <Image url="@../resources/img/emptyPlate.png" />
          </image>
       </ImageView>
+      <Group fx:id="orderListGroup" layoutX="179.0" layoutY="89.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffffb0" height="166.0" layoutX="25.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="3.0" width="180.0" />
+            <Text layoutX="71.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order List" underline="true">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="53.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cake" textAlignment="CENTER" wrappingWidth="53.775390625">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="49.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juice" textAlignment="CENTER" wrappingWidth="63.798828125">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="52.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasta" textAlignment="CENTER" wrappingWidth="59.42315673828125">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="158.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="158.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="158.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </Text>
+            <Button fx:id="confirmButton" layoutX="80.0" layoutY="127.0" mnemonicParsing="false" onAction="#confirmButtonClicked" text="Confirm?" />
+         </children>
+      </Group>
    </children>
 </AnchorPane>

@@ -11,6 +11,7 @@ import enter_leave.LeaveState;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -59,9 +60,6 @@ public class foodController {
     private Text MusicName;
 
     @FXML
-    private Button OrderButton;
-
-    @FXML
     private Button SitButton;
 
     @FXML
@@ -69,6 +67,22 @@ public class foodController {
 
     @FXML
     public Button displayButton;
+
+    @FXML
+    private Group orderListGroup;
+
+    @FXML
+    private Text cakeNum;
+
+    @FXML
+    private Text juiceNum;
+
+    @FXML
+    private Text pastaNum;
+
+    @FXML
+    private Button confirmButton;
+
 
     @FXML
     void EatButtonClicked(ActionEvent event) {
@@ -147,14 +161,25 @@ public class foodController {
         // }
     }
 
-    /**
+    @FXML
+    void displayButtonClicked(ActionEvent event) throws IOException {
+        orderListGroup.setVisible(true);
+        cakeNum.setText("" + cake);
+        juiceNum.setText("" + juice);
+        pastaNum.setText("" + pasta);
+        displayButton.setDisable(true);
+    }
+
+     /**
      * Using Decorator design pattern that use plateDecorator class 
      * and foodItemDecorator concrete class which wraps the original 
      * class (plate) and provides additional functionality 
      * (methods; enjoy()) while keeping exiting class methods intact.
      */
+
     @FXML
-    void displayButtonClicked(ActionEvent event) throws IOException {
+    void confirmButtonClicked(ActionEvent event) {
+        orderListGroup.setVisible(false);
         plate testCake = new cakePlate();
         plate testJuice = new juicePlate();
         plate testPasta = new pastaPlate();
@@ -164,32 +189,20 @@ public class foodController {
         plate decoPasta = new foodItemDecorator(testPasta);
         
         if (cake != 0){
-            // Alert a = new Alert(AlertType.INFORMATION);
-            // a.setHeaderText(null);
-            // a.setContentText("Display Number of Cake: " + cake);
-            // a.showAndWait();
             foodBG1.setImage(decoCake.display());
             System.out.println("Display Number of Cake: " + cake);
 
         }
         if (juice != 0){
-            // Alert b = new Alert(AlertType.INFORMATION);
-            // b.setHeaderText(null);
-            // b.setContentText("Display Number of Juice: " + juice);
-            // b.showAndWait();
             foodBG2.setImage(decoJuice.display());
             System.out.println("Display Number of Juice: " + juice);
 
         }
         if (pasta != 0){
-            // Alert c = new Alert(AlertType.INFORMATION);
-            // c.setHeaderText(null);
-            // c.setContentText("Display Number of Pasta: " + pasta);
-            // c.showAndWait();
             foodBG3.setImage(decoPasta.display());
             System.out.println("Display Number of Pasta: " + pasta);
         }
-        displayButton.setDisable(true);
+        EatButton.setDisable(false);
     }
 
     @FXML
