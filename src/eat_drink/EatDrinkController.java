@@ -130,8 +130,8 @@ public class EatDrinkController {
         EatDrink client = new EatDrink();
         EatDrinkBehaviour eatDrinkLoudly = new EatDrinkLoudly();
 
-        client.setEatBehaviour(eatDrinkLoudly);
-        client.eat(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
+        client.setEatDrinkBehaviour(eatDrinkLoudly);
+        client.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
 
         FXMLLoader root = new FXMLLoader(getClass().getResource("EatDrink.fxml"));
         root.setController(eatDrinkLoudly);
@@ -167,8 +167,8 @@ public class EatDrinkController {
         EatDrink client = new EatDrink();
         EatDrinkBehaviour eatDrinkSome = new EatDrinkSome();
 
-        client.setEatBehaviour(eatDrinkSome);
-        client.eat(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
+        client.setEatDrinkBehaviour(eatDrinkSome);
+        client.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
 
         FXMLLoader root = new FXMLLoader(getClass().getResource("EatDrink.fxml"));
         root.setController(eatDrinkSome);
@@ -189,8 +189,8 @@ public class EatDrinkController {
         EatDrink client = new EatDrink();
         EatDrinkBehaviour eatDrinkSilently = new EatDrinkSilently();
 
-        client.setEatBehaviour(eatDrinkSilently);
-        client.eat(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
+        client.setEatDrinkBehaviour(eatDrinkSilently);
+        client.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
 
         FXMLLoader root = new FXMLLoader(getClass().getResource("EatDrink.fxml"));
         root.setController(eatDrinkSilently);
@@ -217,8 +217,8 @@ public class EatDrinkController {
         EatDrink client = new EatDrink();
         EatDrinkBehaviour eatDrinkAll = new EatDrinkAll();
 
-        client.setEatBehaviour(eatDrinkAll);
-        client.eat(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
+        client.setEatDrinkBehaviour(eatDrinkAll);
+        client.performEatDrink(pasta, juice, cake, foodBG1, foodBG2, foodBG3);
 
         FXMLLoader root = new FXMLLoader(getClass().getResource("EatDrink.fxml"));
         root.setController(eatDrinkAll);
