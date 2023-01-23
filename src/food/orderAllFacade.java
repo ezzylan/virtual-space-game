@@ -9,24 +9,21 @@ public class orderAllFacade {
     plate pasta;
 
     public orderAllFacade(){
-        this.cake = new cakePlate();
-        this.juice = new juicePlate();
-        this.pasta = new pastaPlate();
+        cake = new cakePlate();
+        juice = new juicePlate();
+        pasta = new pastaPlate();
     }
 
     public Image getCakeImage(){
-        Image cakeImage = new Image(getClass().getResourceAsStream("../resources/img/cake.png"));
-        return cakeImage;
+        return cake.display();
     }
 
     public Image getJuiceImage(){
-        Image juiceImage = new Image(getClass().getResourceAsStream("../resources/img/juice.png"));
-        return juiceImage;
+        return juice.display();
     }
 
     public Image getPastaImage(){
-        Image pastaImage = new Image(getClass().getResourceAsStream("../resources/img/pasta.png"));
-        return pastaImage;
+        return pasta.display();
     }
     
 }
