@@ -1,15 +1,14 @@
 package see_Menu;
 
-//template method for each menu item
 public abstract class MenuItem {
 
-    public abstract String getMenuName();
+    abstract String getMenuName();
 
-    public abstract String getMenuImage();
+    abstract String getMenuImage();
 
-    public abstract String getMenuDesc();
+    abstract String getMenuDesc();
 
-    public abstract Double getMenuPrice();
+    abstract Double getMenuPrice();
 
     public void addItemToCart() {
         System.out.println("Add item to cart");
