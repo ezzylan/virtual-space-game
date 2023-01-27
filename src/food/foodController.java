@@ -31,6 +31,7 @@ public class foodController {
     public int cake;
     public int juice;
     public int pasta;
+    public int total;
 
     @FXML
     private ImageView indexBG;
@@ -202,7 +203,12 @@ public class foodController {
             foodBG3.setImage(decoPasta.display());
             System.out.println("Display Number of Pasta: " + pasta);
         }
+        // To display total price:
+        WalletAmount.setText("" + total);
+        
+        displayButton.setDisable(true);
         EatButton.setDisable(false);
+
     }
 
     @FXML

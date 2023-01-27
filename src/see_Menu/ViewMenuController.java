@@ -64,11 +64,21 @@ public class ViewMenuController implements Initializable {
     @FXML
     private Text juiceItemQuantityLabel;
 
+    @FXML
+    private Text priceTotalLabel;
+
     // var to grab selected menu item
     MenuItem currentFood;
+
     protected int quantityPasta = 0;
     protected int quantityCake = 0;
     protected int quantityJuice = 0;
+
+    // var to get the price of each menu item to count total price
+    protected int pricePasta = 12;
+    protected int priceCake = 10;
+    protected int priceJuice = 5;
+    protected int priceTotal = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -147,6 +157,8 @@ public class ViewMenuController implements Initializable {
             orderAmount.setText("" + quantityJuice);
             juiceItemQuantityLabel.setText("" + quantityJuice);
         }
+
+        updateTotalPrice();
     }
 
     @FXML
@@ -168,6 +180,8 @@ public class ViewMenuController implements Initializable {
             orderAmount.setText("" + quantityJuice);
             juiceItemQuantityLabel.setText("" + quantityJuice);
         }
+
+        updateTotalPrice();
     }
 
     @FXML
@@ -203,6 +217,7 @@ public class ViewMenuController implements Initializable {
             controller.cake = quantityCake;
             controller.juice = quantityJuice;
             controller.pasta = quantityPasta;
+            controller.total = priceTotal;
 
             Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
             window.setTitle("Virtual Space Game - Display Food");
@@ -212,6 +227,16 @@ public class ViewMenuController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void updateTotalPrice(){
+        int p = quantityPasta * pricePasta;
+        int c = quantityCake * priceCake;
+        int j = quantityJuice * priceJuice;
+        priceTotal = p + c + j;
+
+        priceTotalLabel.setText("" + priceTotal);
     }
 
 }
