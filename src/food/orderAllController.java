@@ -22,6 +22,8 @@ import music_player.OnMusicCommand;
 public class orderAllController {
     MusicPlayer musicPlayer = new MusicPlayer();
     boolean isPlaying = false;
+    // total price for order all is rm 27 (12 + 10 + 5)
+    int total = 27;
 
     @FXML
     private ImageView tableBG;
@@ -117,6 +119,8 @@ public class orderAllController {
       displayFoodBG1.setImage(foodImage.getCakeImage());
       displayFoodBG2.setImage(foodImage.getJuiceImage());
       displayFoodBG3.setImage(foodImage.getPastaImage());
+      // To display total price:
+      WalletAmount.setText("" + total);
       System.out.print("\n\nDisplay Number of Cake: 1\n\nDisplay Number of Juice: 1\n\nDisplay Number of Pasta: 1");
       DisplayButton.setDisable(true);
 
