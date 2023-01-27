@@ -8,6 +8,7 @@ import enter_leave.LeaveState;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -62,7 +63,32 @@ public class orderAllController {
     private Text WalletAmount;
 
     @FXML
+    private Button confirmButton;
+
+    @FXML
+    private Group orderListGroup;
+
+    @FXML
     void EatButtonClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../eat_drink/EatDrink.fxml"));
+            Parent odr = loader.load();
+
+            Scene scene2 = new Scene(odr);
+
+            eat_drink.EatDrinkController controller = loader.getController();
+            controller.cake = 1;
+            controller.juice = 1;
+            controller.pasta = 1;
+
+            Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.setTitle("Virtual Space Game - Eat/Drink");
+            window.setScene(scene2);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -107,22 +133,33 @@ public class orderAllController {
       // }
     }
 
+    @FXML
+    void DisplayButtonClicked(ActionEvent event) {
+      orderListGroup.setVisible(true);
+      DisplayButton.setDisable(true);
+    }
+
     /**
      * Using Facade design pattern that use orderAllFacade class as
      * an interface which provides simplified methods required by 
      * client (DisplayButtonClicked) and delegates calls to methods of
      * existing system classes. (cakePlate, juicePlate, pastaPlate)
      */
+
     @FXML
-    void DisplayButtonClicked(ActionEvent event) {
+    void confirmButtonClicked(ActionEvent event) {
+      orderListGroup.setVisible(false);
       orderAllFacade foodImage = new orderAllFacade();
       displayFoodBG1.setImage(foodImage.getCakeImage());
       displayFoodBG2.setImage(foodImage.getJuiceImage());
       displayFoodBG3.setImage(foodImage.getPastaImage());
+
       // To display total price:
       WalletAmount.setText("" + total);
+      
       System.out.print("\n\nDisplay Number of Cake: 1\n\nDisplay Number of Juice: 1\n\nDisplay Number of Pasta: 1");
       DisplayButton.setDisable(true);
+      EatButton.setDisable(false);
 
     }
 
