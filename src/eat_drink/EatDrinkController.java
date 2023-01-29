@@ -23,14 +23,17 @@ import javafx.util.Duration;
 import music_player.MusicPlayer;
 import music_player.OffMusicCommand;
 import music_player.OnMusicCommand;
+import wallet.Wallet;
 
 public class EatDrinkController {
 
-    MusicPlayer musicPlayer = new MusicPlayer();
-    boolean isPlaying = false;
+    MusicPlayer musicPlayer = MusicPlayer.getInstance();
+    boolean isPlaying = musicPlayer.isPlaying();
     public int cake;
     public int juice;
     public int pasta;
+    int walletAmount;
+    Wallet wallet = Wallet.getInstance();
 
     @FXML
     private Group AllDoneGroup;
@@ -95,6 +98,16 @@ public class EatDrinkController {
     @FXML
     private Button YesAllButton;
 
+    public void initialize() {
+        walletAmount = wallet.getAmount();
+        WalletAmount.setText(Integer.toString(walletAmount));
+
+        if (isPlaying) {
+            MusicButton.setText("Turn off music");
+            MusicName.setText(musicPlayer.getFileName());
+        }
+    }
+
     @FXML
     void displayButtonClicked(ActionEvent event) throws IOException {
     }
@@ -105,7 +118,10 @@ public class EatDrinkController {
 
     @FXML
     void LeaveButtonClicked(ActionEvent event)
-        throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+            throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+        wallet.setAmount(100);
+        musicPlayer.stopMusic(new OffMusicCommand(), false, MusicButton, MusicName);
+
         Stage primaryStage = new Stage();
         Parent root;
 
@@ -116,21 +132,22 @@ public class EatDrinkController {
         context.doAction();
 
         try {
-        root = FXMLLoader.load(getClass().getResource("../app/IndexScene.fxml"));
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("Virtual Space Game");
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        primaryStage.show();
+            root = FXMLLoader.load(getClass().getResource("../app/IndexScene.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("Virtual Space Game");
+            primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
+            ((Node) event.getSource()).getScene().getWindow().hide();
+            primaryStage.show();
         } catch (IOException e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
 
     }
 
     @FXML
-    void LoudlyButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+    void LoudlyButtonClicked(ActionEvent event)
+            throws LineUnavailableException, IOException, UnsupportedAudioFileException {
         EatDrink eatDrink = new EatDrink();
         EatDrinkBehaviour eatDrinkLoudly = new EatDrinkLoudly();
 
@@ -158,16 +175,18 @@ public class EatDrinkController {
 
     @FXML
     void MusicButtonClicked(ActionEvent event)
-        throws IOException, UnsupportedAudioFileException, LineUnavailableException {
-        // if (isPlaying) {
-        //   musicPlayer.stopMusic(new OffMusicCommand(), this, MusicButton, MusicName);
-        // } else {
-        //   musicPlayer.playMusic(new OnMusicCommand(), this, MusicButton, MusicName);
-        // }
+            throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+        if (isPlaying) {
+            musicPlayer.stopMusic(new OffMusicCommand(), false, MusicButton, MusicName);
+        } else {
+            musicPlayer.playMusic(new OnMusicCommand(), true, MusicButton, MusicName);
+        }
+        isPlaying = musicPlayer.isPlaying();
     }
 
     @FXML
-    void NoSomeButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+    void NoSomeButtonClicked(ActionEvent event)
+            throws LineUnavailableException, IOException, UnsupportedAudioFileException {
         EatDrink eatDrink = new EatDrink();
         EatDrinkBehaviour eatDrinkSome = new EatDrinkSome();
 
@@ -185,7 +204,8 @@ public class EatDrinkController {
     }
 
     @FXML
-    void QuietlyButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+    void QuietlyButtonClicked(ActionEvent event)
+            throws LineUnavailableException, IOException, UnsupportedAudioFileException {
         EatDrink eatDrink = new EatDrink();
         EatDrinkBehaviour eatDrinkQuietly = new EatDrinkQuietly();
 
@@ -213,7 +233,8 @@ public class EatDrinkController {
     }
 
     @FXML
-    void YesAllButtonClicked(ActionEvent event) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+    void YesAllButtonClicked(ActionEvent event)
+            throws LineUnavailableException, IOException, UnsupportedAudioFileException {
         EatDrink eatDrink = new EatDrink();
         EatDrinkBehaviour eatDrinkAll = new EatDrinkAll();
 
@@ -228,14 +249,6 @@ public class EatDrinkController {
 
         AllDoneGroup.setVisible(true);
         AllDoneGroup.setManaged(true);
-    }
-
-    public boolean isPlaying() {
-        return isPlaying;
-    }
-
-    public void setPlaying(boolean isPlaying) {
-        this.isPlaying = isPlaying;
     }
 
 }
