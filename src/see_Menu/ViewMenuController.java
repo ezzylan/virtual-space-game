@@ -2,6 +2,8 @@ package see_Menu;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -22,8 +24,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import wallet.Observer;
+import wallet.Subject;
+import wallet.Wallet;
 
-public class ViewMenuController implements Initializable {
+public class ViewMenuController implements Initializable, Subject {
 
     @FXML
     private ListView<MenuItem> menuListView;
@@ -80,23 +85,27 @@ public class ViewMenuController implements Initializable {
     protected int priceJuice = 5;
     protected int priceTotal = 0;
 
+    Wallet wallet = Wallet.getInstance();
+    List<Observer> observers = new ArrayList<Observer>();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        registerObserver(wallet);
+
         MenuRepository menuRepository = new MenuRepository();
 
         // JavaFx - Create list of menu items
         ObservableList<MenuItem> items = FXCollections.observableArrayList();
-        
+
         Iterator iterator = menuRepository.createIterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             MenuItem menuItem = (MenuItem) iterator.next();
             // Add object to the observable list
             items.add(menuItem);
             // Add object to listview
             menuListView.setItems(items);
         }
-        
+
         menuListView.setCellFactory(param -> new ListCell<MenuItem>() {
             protected void updateItem(MenuItem menu, boolean empty) {
                 super.updateItem(menu, empty);
@@ -125,11 +134,11 @@ public class ViewMenuController implements Initializable {
                 if (menuLabel.getText() == "Pasta") {
                     orderAmount.setText("" + quantityPasta);
                 }
-        
+
                 if (menuLabel.getText() == "Cake") {
                     orderAmount.setText("" + quantityCake);
                 }
-        
+
                 if (menuLabel.getText() == "Juice") {
                     orderAmount.setText("" + quantityJuice);
                 }
@@ -190,21 +199,22 @@ public class ViewMenuController implements Initializable {
         Parent root;
 
         try {
-        root = FXMLLoader.load(getClass().getResource("../app/MainScene.fxml"));
-        Scene scene = new Scene(root);
-        menuStage.setTitle("Virtual Space Game");
-        menuStage.setScene(scene);
-        menuStage.setResizable(false);
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        menuStage.show();
+            root = FXMLLoader.load(getClass().getResource("../app/MainScene.fxml"));
+            Scene scene = new Scene(root);
+            menuStage.setTitle("Virtual Space Game");
+            menuStage.setScene(scene);
+            menuStage.setResizable(false);
+            ((Node) event.getSource()).getScene().getWindow().hide();
+            menuStage.show();
         } catch (IOException e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
 
     }
 
     @FXML
     void orderMenuClicked(ActionEvent event) {
+        notifyObservers();
 
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -219,7 +229,7 @@ public class ViewMenuController implements Initializable {
             controller.pasta = quantityPasta;
             controller.total = priceTotal;
 
-            Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setTitle("Virtual Space Game - Display Food");
             window.setScene(scene2);
             window.show();
@@ -230,7 +240,7 @@ public class ViewMenuController implements Initializable {
     }
 
     @FXML
-    void updateTotalPrice(){
+    void updateTotalPrice() {
         int p = quantityPasta * pricePasta;
         int c = quantityCake * priceCake;
         int j = quantityJuice * priceJuice;
@@ -239,5 +249,21 @@ public class ViewMenuController implements Initializable {
         priceTotalLabel.setText("" + priceTotal);
     }
 
-}
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
 
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(priceTotal);
+        }
+    }
+
+}

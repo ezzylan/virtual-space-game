@@ -9,17 +9,28 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import app.MainSceneController;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 public class MusicPlayer {
+  private static MusicPlayer musicPlayerInstance;
+  private boolean isPlaying = false;
   File file;
   String fileName;
   AudioInputStream audioInputStream;
   Clip clip;
 
-  public void playMusic(MusicPlayerCommand onMusicCommand, MainSceneController controller, Button button, Text name)
+  private MusicPlayer() {
+  }
+
+  public static MusicPlayer getInstance() {
+    if (musicPlayerInstance == null) {
+      musicPlayerInstance = new MusicPlayer();
+    }
+    return musicPlayerInstance;
+  }
+
+  public void playMusic(MusicPlayerCommand onMusicCommand, boolean isPlaying, Button button, Text name)
       throws LineUnavailableException, IOException, UnsupportedAudioFileException {
     file = new File("src/resources/music/Jazz Music.wav");
     fileName = file.getName();
@@ -30,15 +41,25 @@ public class MusicPlayer {
     clip = AudioSystem.getClip();
     clip.open(audioInputStream);
 
-    onMusicCommand.execute(clip, fileName, controller, button, name);
+    setPlaying(isPlaying);
+    onMusicCommand.execute(clip, fileName, button, name);
   }
 
-  public void stopMusic(MusicPlayerCommand offMusicCommand, MainSceneController controller, Button button, Text name) {
-    offMusicCommand.execute(clip, fileName, controller, button, name);
+  public void stopMusic(MusicPlayerCommand offMusicCommand, boolean isPlaying,
+      Button button, Text name) {
+    setPlaying(isPlaying);
+    offMusicCommand.execute(clip, fileName, button, name);
   }
 
-  public void chooseMusic(MusicPlayerCommand chooseMusicCommand, MainSceneController controller, Button button,
-      Text name) {
-    chooseMusicCommand.execute(clip, fileName, controller, button, name);
+  public boolean isPlaying() {
+    return isPlaying;
+  }
+
+  public void setPlaying(boolean isPlaying) {
+    this.isPlaying = isPlaying;
+  }
+
+  public String getFileName() {
+    return fileName;
   }
 }

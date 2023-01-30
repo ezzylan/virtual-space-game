@@ -23,15 +23,18 @@ import javafx.stage.Stage;
 import music_player.MusicPlayer;
 import music_player.OffMusicCommand;
 import music_player.OnMusicCommand;
+import wallet.Wallet;
 
 public class foodController {
 
-    MusicPlayer musicPlayer = new MusicPlayer();
-    boolean isPlaying = false;
+    MusicPlayer musicPlayer = MusicPlayer.getInstance();
+    boolean isPlaying = musicPlayer.isPlaying();
     public int cake;
     public int juice;
     public int pasta;
     public int total;
+    int walletAmount;
+    Wallet wallet = Wallet.getInstance();
 
     @FXML
     private ImageView indexBG;
@@ -84,6 +87,15 @@ public class foodController {
     @FXML
     private Button confirmButton;
 
+    public void initialize() {
+        walletAmount = wallet.getAmount();
+        WalletAmount.setText(Integer.toString(walletAmount));
+
+        if (isPlaying) {
+            MusicButton.setText("Turn off music");
+            MusicName.setText(musicPlayer.getFileName());
+        }
+    }
 
     @FXML
     void EatButtonClicked(ActionEvent event) {
@@ -99,7 +111,7 @@ public class foodController {
             controller.juice = juice;
             controller.pasta = pasta;
 
-            Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setTitle("Virtual Space Game - Eat/Drink");
             window.setScene(scene2);
             window.show();
@@ -110,7 +122,10 @@ public class foodController {
 
     @FXML
     void LeaveButtonClicked(ActionEvent event)
-        throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+            throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+        wallet.setAmount(100);
+        musicPlayer.stopMusic(new OffMusicCommand(), false, MusicButton, MusicName);
+
         Stage primaryStage = new Stage();
         Parent root;
 
@@ -121,15 +136,15 @@ public class foodController {
         context.doAction();
 
         try {
-        root = FXMLLoader.load(getClass().getResource("../app/IndexScene.fxml"));
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("Virtual Space Game");
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        primaryStage.show();
+            root = FXMLLoader.load(getClass().getResource("../app/IndexScene.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("Virtual Space Game");
+            primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
+            ((Node) event.getSource()).getScene().getWindow().hide();
+            primaryStage.show();
         } catch (IOException e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
 
     }
@@ -140,7 +155,7 @@ public class foodController {
         Parent root;
 
         try {
-            root = FXMLLoader.load(getClass().getResource("ViewMenuScene.fxml"));   
+            root = FXMLLoader.load(getClass().getResource("ViewMenuScene.fxml"));
             Scene scene = new Scene(root);
             viewMenuStage.setTitle("Virtual Space Game - Menu");
             viewMenuStage.setScene(scene);
@@ -154,12 +169,13 @@ public class foodController {
 
     @FXML
     void MusicButtonClicked(ActionEvent event)
-        throws IOException, UnsupportedAudioFileException, LineUnavailableException {
-        // if (isPlaying) {
-        //   musicPlayer.stopMusic(new OffMusicCommand(), this, MusicButton, MusicName);
-        // } else {
-        //   musicPlayer.playMusic(new OnMusicCommand(), this, MusicButton, MusicName);
-        // }
+            throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+        if (isPlaying) {
+            musicPlayer.stopMusic(new OffMusicCommand(), false, MusicButton, MusicName);
+        } else {
+            musicPlayer.playMusic(new OnMusicCommand(), true, MusicButton, MusicName);
+        }
+        isPlaying = musicPlayer.isPlaying();
     }
 
     @FXML
@@ -171,10 +187,10 @@ public class foodController {
         displayButton.setDisable(true);
     }
 
-     /**
-     * Using Decorator design pattern that use plateDecorator class 
-     * and foodItemDecorator concrete class which wraps the original 
-     * class (plate) and provides additional functionality 
+    /**
+     * Using Decorator design pattern that use plateDecorator class
+     * and foodItemDecorator concrete class which wraps the original
+     * class (plate) and provides additional functionality
      * (methods; enjoy()) while keeping exiting class methods intact.
      */
 
@@ -188,24 +204,24 @@ public class foodController {
         plate decoCake = new foodItemDecorator(testCake);
         plate decoJuice = new foodItemDecorator(testJuice);
         plate decoPasta = new foodItemDecorator(testPasta);
-        
-        if (cake != 0){
+
+        if (cake != 0) {
             foodBG1.setImage(decoCake.display());
             System.out.println("Display Number of Cake: " + cake);
 
         }
-        if (juice != 0){
+        if (juice != 0) {
             foodBG2.setImage(decoJuice.display());
             System.out.println("Display Number of Juice: " + juice);
 
         }
-        if (pasta != 0){
+        if (pasta != 0) {
             foodBG3.setImage(decoPasta.display());
             System.out.println("Display Number of Pasta: " + pasta);
         }
         // To display total price:
-        WalletAmount.setText("" + total);
-        
+        // WalletAmount.setText("" + total);
+
         displayButton.setDisable(true);
         EatButton.setDisable(false);
 
@@ -214,14 +230,6 @@ public class foodController {
     @FXML
     void SitButtonClicked(ActionEvent event) {
 
-    }
-
-    public boolean isPlaying() {
-        return isPlaying;
-    }
-
-    public void setPlaying(boolean isPlaying) {
-        this.isPlaying = isPlaying;
     }
 
 }

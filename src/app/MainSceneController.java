@@ -19,10 +19,13 @@ import javafx.stage.Stage;
 import music_player.MusicPlayer;
 import music_player.OffMusicCommand;
 import music_player.OnMusicCommand;
+import wallet.Wallet;
 
 public class MainSceneController {
-  MusicPlayer musicPlayer = new MusicPlayer();
-  boolean isPlaying = false;
+  MusicPlayer musicPlayer = MusicPlayer.getInstance();
+  boolean isPlaying = musicPlayer.isPlaying();
+  int walletAmount;
+  Wallet wallet = Wallet.getInstance();
 
   @FXML
   private ImageView indexBG;
@@ -51,6 +54,11 @@ public class MainSceneController {
   @FXML
   private Text WalletAmount;
 
+  public void initialize() {
+    walletAmount = wallet.getAmount();
+    WalletAmount.setText(Integer.toString(walletAmount));
+  }
+
   @FXML
   void EatButtonClicked(ActionEvent event) {
 
@@ -59,6 +67,9 @@ public class MainSceneController {
   @FXML
   void LeaveButtonClicked(ActionEvent event)
       throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+    wallet.setAmount(100);
+    musicPlayer.stopMusic(new OffMusicCommand(), false, MusicButton, MusicName);
+
     Stage primaryStage = new Stage();
     Parent root;
 
@@ -104,10 +115,11 @@ public class MainSceneController {
   void MusicButtonClicked(ActionEvent event)
       throws IOException, UnsupportedAudioFileException, LineUnavailableException {
     if (isPlaying) {
-      musicPlayer.stopMusic(new OffMusicCommand(), this, MusicButton, MusicName);
+      musicPlayer.stopMusic(new OffMusicCommand(), false, MusicButton, MusicName);
     } else {
-      musicPlayer.playMusic(new OnMusicCommand(), this, MusicButton, MusicName);
+      musicPlayer.playMusic(new OnMusicCommand(), true, MusicButton, MusicName);
     }
+    isPlaying = musicPlayer.isPlaying();
   }
 
   @FXML
@@ -136,14 +148,6 @@ public class MainSceneController {
     MenuButton.setDisable(false);
     OrderAllButton.setDisable(false);
     EatButton.setDisable(true);
-  }
-
-  public boolean isPlaying() {
-    return isPlaying;
-  }
-
-  public void setPlaying(boolean isPlaying) {
-    this.isPlaying = isPlaying;
   }
 
 }
